@@ -3,6 +3,6 @@
 
 # 構文
 ```python
-import FakeHack.py
-FakeHack.main(AttackBlock)
+import FakeHackV2
+FakeHackV2.main("AttackBlock")
 ```
