@@ -2,15 +2,9 @@ import random
 import secrets
 import string
 import time
+from faker import Faker
 
-def ip_generate():
-	ip_value = []
-	for count in range(4):
-		chs = [2, 3]
-		random.shuffle(chs)
-		chars = string.digits
-		ip_value.append(''.join(secrets.choice(chars) for x in range(int(chs[0]))))
-	return "{0}".format(".".join(ip_value))
+fake = Faker("ja_JP")
 
 def main(hack_type):
 	if hack_type == "AttackBlock":
@@ -31,7 +25,7 @@ def main(hack_type):
 			"LOIC DoS Blocked"
 		]
 		for count in range(3):
-			generated_ip = ip_generate()
+			generated_ip = fake.ipv4()
 			logs.append(f"IP {generated_ip} Access Blocked")
 		while True:
 			random.shuffle(logs)
